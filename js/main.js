@@ -9,17 +9,15 @@ if (menu) {
 }
 
 // Tabs (anxiety levels)
-document.querySelectorAll('[role=tablist]').forEach((list) => {
+document.querySelectorAll('[role=tablist]').forEach(list => {
   const tabs = list.querySelectorAll('[role=tab]');
-  tabs.forEach((tab) =>
-    tab.addEventListener('click', () => {
-      tabs.forEach((t) => {
-        const on = t === tab;
-        t.setAttribute('aria-selected', on);
-        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-      });
-    }),
-  );
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }));
 });
 
 // Breathing guide: in for 4s, out for 6s
@@ -54,6 +52,4 @@ if (orb && btn) {
 }
 
 // Footer year
-document
-  .querySelectorAll('.year')
-  .forEach((y) => (y.textContent = new Date().getFullYear()));
+document.querySelectorAll('.year').forEach(y => (y.textContent = new Date().getFullYear()));
